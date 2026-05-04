@@ -1,21 +1,19 @@
 const router = require("express").Router();
-const Project = require("../models/project");
 const auth = require("../middleware/auth");
-const role = require("../middleware/role");
+const Project = require("../models/Project");
 
-// CREATE PROJECT (Admin)
-router.post("/", auth, role("Admin"), async (req, res) => {
-  try {
-    const project = await Project.create(req.body);
-    res.json(project);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
+// ✅ Create Project (Admin only)
+router.post("/", auth(["Admin"]), async (req, res) => {
+  const project = await Project.create({
+    ...req.body,
+    createdBy: req.user.id
+  });
+  res.json(project);
 });
 
-// GET PROJECTS
-router.get("/", auth, async (req, res) => {
-  const projects = await Project.find();
+// ✅ Get all projects (Admin + Member)
+router.get("/", auth(["Admin", "Member"]), async (req, res) => {
+  const projects = await Project.find().populate("createdBy");
   res.json(projects);
 });
 
