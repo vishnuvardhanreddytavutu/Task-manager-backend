@@ -61,9 +61,9 @@ npm install
 
 Create a `.env` file and add:
 
-MONGO_URI=your_mongodb_connection_string  
+mongodb+srv://vishnu:Vishnu%401234@cluster0.tufwq5a.mongodb.net/taskmanager  
 JWT_SECRET=your_secret_key  
-PORT=5000  
+PORT=5000 
 
 ---
 
