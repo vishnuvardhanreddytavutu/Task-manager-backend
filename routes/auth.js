@@ -15,8 +15,9 @@ router.post("/signup", async (req, res) => {
     email,
     password: hashedPassword
   });
-
-  res.json(user);
+  
+const { password: _, ...userData } = user._doc;
+res.json(userData);
 });
 
 // LOGIN
@@ -35,7 +36,12 @@ router.post("/login", async (req, res) => {
     { expiresIn: "1d" }
   );
 
-  res.json({ token, user });
+const { password: _, ...userData } = user._doc;
+
+res.json({
+  token,
+  user: userData
+});
 });
 
 module.exports = router;
