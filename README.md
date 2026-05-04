@@ -1,145 +1,174 @@
-# 🚀 Team Task Manager Backend
+# 🚀 Team Task Manager (Backend)
 
-A Node.js + Express + MongoDB backend application for managing projects and tasks with authentication and role-based access.
+A full-stack ready backend application for managing teams, projects, and tasks with role-based access control.
+
+---
+
+## 🌐 Live API
+
+👉 https://task-manager-backend-0wy9.onrender.com
 
 ---
 
 ## 📌 Features
 
-- User Authentication (JWT)
-- Role-based Access (Admin / User)
-- Project Management
-- Task Management
-- Dashboard (project & task stats)
-- REST API
+* 🔐 **Authentication**
+
+  * User Signup & Login
+  * JWT-based authentication
+
+* 👥 **Role-Based Access**
+
+  * Admin & Member roles
+  * Protected routes
+
+* 📁 **Project Management**
+
+  * Create projects (Admin only)
+  * View all projects
+
+* ✅ **Task Management**
+
+  * Create tasks
+  * Assign tasks to users
+  * Track status (Todo / In Progress / Done)
+
+* 📊 **Dashboard**
+
+  * Total projects
+  * Total tasks
+  * Completed tasks
+  * Pending tasks
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Node.js
-- Express.js
-- MongoDB (Mongoose)
-- JWT Authentication
-- Render (Deployment)
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB Atlas
+* **Authentication:** JWT
+* **Hosting:** Render
 
 ---
 
-## 📂 Folder Structure
+## 📂 Project Structure
 
 Server/
-│── middleware/
-│   ├── auth.js
-│   ├── role.js
 │
-│── models/
+├── middleware/
+│   ├── auth.js
+│   └── role.js
+│
+├── models/
 │   ├── User.js
 │   ├── Project.js
-│   ├── Task.js
+│   └── Task.js
 │
-│── routes/
+├── routes/
 │   ├── auth.js
-│   ├── project.js
+│   ├── projects.js
 │   ├── task.js
-│   ├── dashboard.js
+│   └── dashboard.js
 │
-│── .env
-│── server.js
-│── package.json
+├── server.js
+├── package.json
+└── .env
 
 ---
 
-## ⚙️ Installation
+## ⚙️ Environment Variables
 
-git clone https://github.com/vishnuvardhanreddytavutu/Task-manager-backend.git  
-cd Task-manager-backend  
-npm install  
+Create a `.env` file:
 
----
-
-## 🔑 Environment Variables
-
-Create a `.env` file and add:
-
-mongodb+srv://vishnu:Vishnu%401234@cluster0.tufwq5a.mongodb.net/taskmanager  
-JWT_SECRET=your_secret_key  
-PORT=5000 
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
 
 ---
 
-## ▶️ Run Project
+## 🚀 Installation & Run
 
-npm run dev  
-
-Server runs at:  
-http://localhost:5000  
+git clone https://github.com/vishnuvardhanreddytavutu/Task-manager-backend
+cd Task-manager-backend
+npm install
+npm start
 
 ---
 
-## 📡 API Endpoints
+## 📬 API Endpoints
 
 ### 🔐 Auth
 
-POST /api/auth/register → Register user  
-POST /api/auth/login → Login user  
+POST /api/auth/signup
+POST /api/auth/login
 
 ---
 
 ### 📁 Projects
 
-POST /api/projects → Create project (Admin only)  
-GET /api/projects → Get all projects  
+POST /api/projects (Admin only)
+GET /api/projects
 
 ---
 
 ### ✅ Tasks
 
-POST /api/tasks → Create task  
-GET /api/tasks → Get all tasks  
-PUT /api/tasks/:id → Update task  
+POST /api/tasks
+GET /api/tasks
 
 ---
 
 ### 📊 Dashboard
 
-GET /api/dashboard → Get project & task stats  
+GET /api/dashboard
 
 ---
 
-## 🔐 Authorization
+## 🔑 Authorization
 
-Use JWT token in headers:
+Add token in headers:
 
 Authorization: Bearer <your_token>
 
 ---
 
-## 🌍 Live URL
+## 🧪 Sample Request (Signup)
 
-https://your-app-name.onrender.com  
+{
+"name": "test",
+"email": "[test@gmail.com](mailto:test@gmail.com)",
+"password": "123456"
+}
+
+---
+
+## 🏆 Project Highlights
+
+* RESTful API design
+* Secure authentication using JWT
+* Role-based authorization
+* Scalable MongoDB schema design
+* Cloud deployment using Render
+
+---
+
+## 🚀 Future Improvements
+
+* Task deadlines & overdue alerts
+* Team collaboration features
+* Notifications system
+* Frontend integration (React)
 
 ---
 
 ## 👨‍💻 Author
 
-Vishnu Vardhan Reddy  
-
-GitHub: https://github.com/vishnuvardhanreddytavutu  
-
----
-
-## ⭐ Notes
-
-- .env and node_modules are ignored using .gitignore  
-- Use Postman to test APIs  
-- Admin role required for creating projects  
+Vishnuvardhan Reddy
+GitHub: https://github.com/vishnuvardhanreddytavutu
+LinkedIn: https://linkedin.com/in/vishnuvardhanreddytavutu
 
 ---
 
-## 🎯 Future Improvements
+## ⭐ If you like this project
 
-- Task assignment to users  
-- Notifications  
-- Frontend integration (React)  
-
----
+Give it a ⭐ on GitHub!
